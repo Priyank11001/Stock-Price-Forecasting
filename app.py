@@ -15,7 +15,7 @@ def main():
     st.title("Stock Price Prediction")
 
     # User input for stock symbol
-    stock_symbol = st.text_input("Enter the stock symbol (e.g., RELIANCE.BO):", "RELIANCE.BO")
+    stock_symbol = st.text_input("Enter the stock symbol (e.g., RELIANCE.NS):", "RELIANCE.NS")
 
     # Fetch stock data
     if st.button("Fetch and Predict"):
