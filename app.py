@@ -20,8 +20,10 @@ def main():
     # Fetch stock data
     if st.button("Fetch and Predict"):
         try:
-            data = yf.download(stock_symbol)
-            data.columns = data.columns.droplevel(1)
+            data = yf.download(stock_symbol,period="1y")
+            if isinstance(data.columns, pd.MultiIndex):
+                data.columns = data.columns.droplevel(1)
+
             data.reset_index(inplace=True)
             data['Date'] = pd.to_datetime(data['Date'])
    
