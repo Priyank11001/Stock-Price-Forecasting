@@ -25,7 +25,7 @@ def run():
             stock_data['Date'] = pd.to_datetime(stock_data['Date'])
             st.session_state.count+=1
             
-        model = load_model("pages\stock_price_forecasting_model.keras")
+        model = load_model("pages/stock_price_forecasting_model.keras")
         data = stock_data['Close']
         scaled_data = scaler.fit_transform(np.array(data).reshape(-1,1))
         lookback = 30
