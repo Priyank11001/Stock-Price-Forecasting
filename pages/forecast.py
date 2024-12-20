@@ -9,17 +9,21 @@ import plotly.graph_objects as go
 scaler = MinMaxScaler(feature_range=(0,1))
 
 
-
 def run():
-    if "data" in st.session_state and "company" in st.session_state:
-
-        stock_data = st.session_state.data
-        stock_data.reset_index(inplace = True)
-        stock_data.columns = stock_data.columns.droplevel(1)
-        company = st.session_state.company 
-        # st.write(stock_data)
-        st.title(f"Stock Price Forecasting for {company}")
-        stock_data['Date'] = pd.to_datetime(stock_data['Date'])
+    if "forecasting_data" in st.session_state and "company" in st.session_state:
+        
+        st.session_state.count = 0
+        if st.session_state.count == 0:
+            stock_data = st.session_state.forecasting_data
+            stock_data.reset_index(inplace = True)
+            if isinstance(stock_data.columns, pd.MultiIndex):
+                stock_data.columns = stock_data.columns.droplevel(1)
+                
+            company = st.session_state.company 
+            # st.write(stock_data)
+            st.title(f"Stock Price Forecasting for {company}")
+            stock_data['Date'] = pd.to_datetime(stock_data['Date'])
+            st.session_state.count+=1
         model = load_model("C:\Rough Work\Stock-Price-Forecasting\stock_price_forecasting_model.keras")
 
 
