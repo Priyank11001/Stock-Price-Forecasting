@@ -19,6 +19,7 @@ def convert_to_indian_format(number):
 
 def run():
     if "data" in st.session_state and "company" in st.session_state:
+
         company = st.session_state.company
         st.title(f"Fundamentals of {company}")
         data = yf.Ticker(company)
@@ -33,7 +34,6 @@ def run():
         dividend = f"{data.info['dividendYield']*100:.2f}%"
         roa = f"{data.info['returnOnAssets']:.2f}%"
         current_ratio = data.info['currentRatio']
-        payout_ratio = data.info['payoutRatio']
         
         with st.container():
             st.subheader("📊 Key Metrics")
@@ -66,13 +66,10 @@ def run():
             with col3:
                 st.metric("Current Ratio",current_ratio)
      
+    else:  
+      st.error("You must fetch the stock data from the main page")
+      return
         
-           
-
-    else:
-        st.error("You must fetch the stock data from the main page")
-        return
-
-
+  
 if __name__ == "__main__":
     run()

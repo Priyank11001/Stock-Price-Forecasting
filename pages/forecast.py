@@ -20,18 +20,17 @@ def run():
                 stock_data.columns = stock_data.columns.droplevel(1)
                 
             company = st.session_state.company 
-            # st.write(stock_data)
             st.title(f"Stock Price Forecasting for {company}")
             stock_data['Date'] = pd.to_datetime(stock_data['Date'])
             st.session_state.count+=1
+            
         model = load_model("C:\Rough Work\Stock-Price-Forecasting\stock_price_forecasting_model.keras")
-
-
         data = stock_data['Close']
         scaled_data = scaler.fit_transform(np.array(data).reshape(-1,1))
         lookback = 30
         input_data = scaled_data[-30:]
         predicted_prices = []
+        
         for _ in range(30):
             input_sequence = input_data.reshape(1,lookback,1)
             next_close_price = model.predict(input_sequence,verbose = 0)[0,0]
@@ -43,13 +42,11 @@ def run():
             input_data[-1] = next_close_price
         
         predicted_prices = np.array(predicted_prices).flatten()
-        # st.write(predicted_prices)
         fig_forecast = go.Figure()
 
         future_dates = pd.date_range(start=stock_data['Date'].iloc[-1] + pd.Timedelta(days=1), periods=30, freq='B')
         future_dates = pd.to_datetime(future_dates)
-        # st.write(future_dates)
-            
+         
         fig_forecast.add_trace(go.Scatter(
             x=stock_data['Date'],
             y=stock_data['Close'],

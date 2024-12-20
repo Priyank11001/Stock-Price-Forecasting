@@ -79,8 +79,8 @@ def run():
             go.Scatter(x = data['Date'],y = data['MA200'],mode='lines',name="200 DMA",line=dict(color = 'green'))
         )
 
-        
         st.plotly_chart(fig_ma)
+
 
         st.markdown("""<h2>SuperTrend</h2>""",unsafe_allow_html=True)
         fig_st = go.Figure()
@@ -108,8 +108,8 @@ def run():
             go.Scatter(x = data['Date'],y = data['EMA200'],mode='lines',name="200 EMA",line=dict(color = 'green'))
         )
 
-        
         st.plotly_chart(fig_ema)
+
 
         st.markdown("""<h2>VWAP(Volume Weighted Average Price)</h2>""",unsafe_allow_html=True)
         fig_vwap = go.Figure()
@@ -122,24 +122,11 @@ def run():
             go.Scatter(x = data['Date'],y = data['VWAP'],name = "VWAP(Volume Weighted Average Price)",line=dict(color = "red"))
         )
 
-      
-
         st.plotly_chart(fig_vwap)
 
-
-        # st.markdown("""<h2>Stochastic Oscilator</h2>""",unsafe_allow_html=True)
-        # fig_sa = go.Figure()
-
-        # fig_sa.add_trace(
-        #     go.Scatter(x = data['Date'],y = data['Close'],mode='lines',name = "Actual Close Price",line = dict(color = 'blue'))
-        # )
-
-        # fig_sa.add_trace(
-        #     go.Scatter(x = data['Date'],y = data['Stochastic_Oscilator'],name = "Stochastic Oscilator",line=dict(color = "red"))
-        # )
-
-        # st.plotly_chart(fig_sa)
-       
+    else:
+     st.error("You must fetch the stock data from the main page")
+     return
 
 if __name__ == "__main__":
     run()

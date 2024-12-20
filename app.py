@@ -10,7 +10,6 @@ import plotly.graph_objects as go
 
 
 def main():
-    # text = st.markdown()
     st.title("Welcome to GrowMore 📈",)
 
     if "data" not in st.session_state:
