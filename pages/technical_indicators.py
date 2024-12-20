@@ -67,6 +67,7 @@ def run():
 
 
         st.markdown("""<h2>Simple Moving Averages </h2>""",unsafe_allow_html=True)
+        st.markdown("""<p>The Simple Moving Average (SMA) is a basic calculation that averages the closing prices of a stock over a fixed period, such as 50 or 200 days. It gives equal importance to all the data points in the period, making it slower to react to price changes</p>""",unsafe_allow_html=True)
         fig_ma = go.Figure()
 
         fig_ma.add_trace(
@@ -97,6 +98,7 @@ def run():
 
 
         st.markdown("""<h2>Exponential Moving Averages </h2>""",unsafe_allow_html=True)
+        st.markdown("""<p>The Exponential Moving Average (EMA), however, places more emphasis on recent prices, which allows it to react more quickly to recent price movements. This makes the EMA more sensitive to trends and price fluctuations compared to the SMA, which is smoother and more stable.</p>""",unsafe_allow_html=True)
         fig_ema = go.Figure()
 
         fig_ema.add_trace(
