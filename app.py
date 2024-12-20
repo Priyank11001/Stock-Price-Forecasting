@@ -20,7 +20,7 @@ def main():
         st.session_state.company = ""
 
     
-    company = st.text_input("Enter the name of company",value=st.session_state.company or "")
+    company = st.text_input("Enter the name of company",value=st.session_state.company or "",placeholder="RELIANCE.NS or TCS.NS")
 
     if st.button("Get info"):
 
