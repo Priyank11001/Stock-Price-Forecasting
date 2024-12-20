@@ -2,11 +2,6 @@ import yfinance as yf
 import numpy as np
 import pandas as pd
 import streamlit as st
-from tensorflow.keras.models import load_model
-from sklearn.preprocessing import MinMaxScaler
-import matplotlib.pyplot as plt
-import plotly.graph_objects as go
-
 
 
 def main():
@@ -47,7 +42,7 @@ def main():
         st.markdown(f"industry & Sector: {ticker.info['industry']} , {ticker.info['sector']}")
         st.markdown(f"Website : [{ticker.info['website']}]({ticker.info['website']})")
         st.markdown(f"""<h3>Historical Data of {company}</h3> """,unsafe_allow_html=True)
-        st.dataframe(st.session_state.data)
+        st.dataframe(data)
 
    
             
