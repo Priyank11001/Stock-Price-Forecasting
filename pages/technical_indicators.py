@@ -83,6 +83,7 @@ def run():
 
 
         st.markdown("""<h2>SuperTrend</h2>""",unsafe_allow_html=True)
+        st.markdown("""<p>The Supertrend is a trend-following indicator that helps identify market trends by plotting lines above or below the price based on volatility using the Average True Range (ATR). When the Supertrend is above the price, it signals a bearish trend, while below the price, it indicates a bullish trend</p>""",unsafe_allow_html=True)
         fig_st = go.Figure()
 
         fig_st.add_trace(
@@ -112,6 +113,7 @@ def run():
 
 
         st.markdown("""<h2>VWAP(Volume Weighted Average Price)</h2>""",unsafe_allow_html=True)
+        st.markdown("""<p>VWAP (Volume Weighted Average Price) measures the average price a stock has traded at during the day, weighted by volume. Stocks trading above the VWAP suggest bullish momentum, while those below it indicate bearish pressure. Both indicators are valuable tools for analyzing trends, spotting entry/exit points, and identifying support or resistance levels.</p>""")
         fig_vwap = go.Figure()
 
         fig_vwap.add_trace(
