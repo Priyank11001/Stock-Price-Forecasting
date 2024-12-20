@@ -15,16 +15,17 @@ def run():
         st.session_state.count = 0
         if st.session_state.count == 0:
             stock_data = st.session_state.forecasting_data
-            stock_data.reset_index(inplace = True)
+            
             if isinstance(stock_data.columns, pd.MultiIndex):
                 stock_data.columns = stock_data.columns.droplevel(1)
+                stock_data.reset_index(inplace = True)
                 
             company = st.session_state.company 
             st.title(f"Stock Price Forecasting for {company}")
             stock_data['Date'] = pd.to_datetime(stock_data['Date'])
             st.session_state.count+=1
             
-        model = load_model("Stock-Price-Forecasting/stock_price_forecasting_model.keras")
+        model = load_model("pages\stock_price_forecasting_model.keras")
         data = stock_data['Close']
         scaled_data = scaler.fit_transform(np.array(data).reshape(-1,1))
         lookback = 30
