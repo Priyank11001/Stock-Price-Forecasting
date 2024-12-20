@@ -29,6 +29,7 @@ def main():
 
         else:
             st.session_state.forecasting_data = forecasting_data
+            st.session_state.main_page_data = data
             st.session_state.data = data
             st.session_state.company = company
             
@@ -42,7 +43,7 @@ def main():
         st.markdown(f"industry & Sector: {ticker.info['industry']} , {ticker.info['sector']}")
         st.markdown(f"Website : [{ticker.info['website']}]({ticker.info['website']})")
         st.markdown(f"""<h3>Historical Data of {company}</h3> """,unsafe_allow_html=True)
-        st.dataframe(data)
+        st.dataframe(st.session_state.main_page_data)
 
    
             
