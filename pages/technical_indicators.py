@@ -113,7 +113,7 @@ def run():
 
 
         st.markdown("""<h2>VWAP(Volume Weighted Average Price)</h2>""",unsafe_allow_html=True)
-        st.markdown("""<p>VWAP (Volume Weighted Average Price) measures the average price a stock has traded at during the day, weighted by volume. Stocks trading above the VWAP suggest bullish momentum, while those below it indicate bearish pressure. Both indicators are valuable tools for analyzing trends, spotting entry/exit points, and identifying support or resistance levels.</p>""")
+        st.markdown("""<p>VWAP (Volume Weighted Average Price) measures the average price a stock has traded at during the day, weighted by volume. Stocks trading above the VWAP suggest bullish momentum, while those below it indicate bearish pressure. Both indicators are valuable tools for analyzing trends, spotting entry/exit points, and identifying support or resistance levels.</p>""",unsafe_allow_html=True)
         fig_vwap = go.Figure()
 
         fig_vwap.add_trace(
