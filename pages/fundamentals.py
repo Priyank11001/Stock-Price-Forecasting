@@ -6,7 +6,7 @@ def convert_to_indian_format(number):
     if number >= 1e12:
         return f"{number/ 1e12:.1f} Lakh Cr"
     elif number>=1e11:
-        return f"{number/ 1e11:.2f}Thousand Cr"
+        return f"{number/ 1e11:.2f}k Cr"
     elif number >=1e9:
         return f"{number / 1e9:.2f} Crore"
     elif number >=1e7:
